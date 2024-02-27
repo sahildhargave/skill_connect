@@ -1,0 +1,99 @@
+import '../Ui/onbording_screen.dart';
+import "package:flutter/material.dart";
+import '../Constant File/pallete.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../String Files/text_string.dart';
+import 'package:phlox_animations/phlox_animations.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Pallete.whiteColor,
+        body: Padding(
+            padding: const EdgeInsets.only(top: 48),
+            child: Center(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    PhloxAnimations(
+                      duration: const Duration(seconds: 2),
+                      fromDegrees: 90,
+                      fromScale: 100,
+                      fromOpacity: 0.6,
+                      //fromY: -100,
+                      fromX: 100,
+                      child: Text(
+                        flex,
+                        style: TextStyle(
+                          color: Pallete.blackColor,
+                          fontSize: 19.sp,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 45.h),
+                    PhloxAnimations(
+                        duration: const Duration(seconds: 2),
+                        fromDegrees: 40,
+                        fromScale: 0,
+                        fromOpacity: 0.1,
+                        fromX: 100,
+                        child: Text(easyFindjob,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Pallete.blackColor,
+                              fontSize: 30.sp,
+                              fontWeight: FontWeight.bold,
+                            ))),
+                    SizedBox(height: 25.h),
+                    Text(flex_sub,
+                        style: TextStyle(
+                          color: Pallete.greyColor,
+                          fontSize: 18.sp,
+                        )),
+                    PhloxAnimations(
+                        duration: const Duration(seconds: 1),
+                        fromY: -100,
+                        child: Image.asset(
+                          "assets/splash_screen_img1.gif",
+                          height: 350.h,
+                        )),
+                    SizedBox(height: 30.h),
+                    PhloxAnimations(
+                        duration: const Duration(seconds: 2),
+                        fromY: -100,
+                        child: SizedBox(
+                          height: 48.h,
+                          width: 140.w,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => OnbordingScreen()));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Pallete.blackColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.r),
+                              ),
+                            ),
+                            child: Text(Get_Started,
+                                style: TextStyle(
+                                  color: Pallete.borderColor,
+                                  fontSize: 15.sp,
+                                )),
+                          ),
+                        ))
+                  ]),
+            )));
+  }
+}
